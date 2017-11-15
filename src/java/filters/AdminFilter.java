@@ -4,9 +4,6 @@ import businesslogic.UserService;
 import domainmodel.Role;
 import domainmodel.User;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.Filter;
@@ -40,12 +37,7 @@ public class AdminFilter implements Filter {
             UserService us = new UserService();
             String username = (String) session.getAttribute("username");
             
-            
-            User user = us.get(username);
-            Role role = user.getRole();
-            
-            
-            if (role.getRoleID() == 1) {
+            if (us.get(username).getRole().getRoleID() == 1) {
                 // yes, go onwards to the servlet or next filter
                 chain.doFilter(request, response);
             } else {
