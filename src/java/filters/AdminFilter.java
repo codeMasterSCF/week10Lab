@@ -1,8 +1,6 @@
 package filters;
 
 import businesslogic.UserService;
-import domainmodel.Role;
-import domainmodel.User;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
